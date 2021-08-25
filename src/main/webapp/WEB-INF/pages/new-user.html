@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New user</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<h2>Adding new user:</h2>
+
+<form th:method="POST" th:action="@{/}" th:object="${user}">
+
+    <label for="firstName">Name: </label>
+    <input type="text" th:field="*{firstName}" id="firstName">
+    </br>
+    <label for="lastName">Surname: </label>
+    <input type="text" th:field="*{lastName}" id="lastName">
+    </br>
+    <label for="email">Email: </label>
+    <input type="text" th:field="*{email}" id="email">
+    </br>
+    <label for="phone">Phone: </label>
+    <input type="text" th:field="*{phone}" id="phone">
+    </br>
+    <label for="year">Year of birth: </label>
+    <input type="text" th:field="*{year}" id="year">
+    </br>
+    <label for="month">Month of birth: </label>
+    <input type="text" th:field="*{month}" id="month">
+    </br>
+    <label for="day">Day of birth: </label>
+    <input type="text" th:field="*{day}" id="day">
+    </br>
+
+    <input type="submit" value="Add">
+    <button type="button"onclick="history.back();" >Return</button>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New user</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h2>Users: </h2>
+<table th:border="8">
+
+    <style>
+      table {
+        width: 100%; /* Ширина таблицы */
+        background: coral; /* Цвет фона таблицы */
+        color: black; /* Цвет текста */
+        border-spacing: 1px; /* Расстояние между ячейками */
+      }
+      td, th {
+        background: blanchedalmond; /* Цвет фона ячеек */
+        padding: 5px; /* Поля вокруг текста */
+      }
+    </style>
+
+  <tr>
+    <th>NAME</th>
+    <th>SURNAME</th>
+    <th>EMAIL</th>
+    <th>PHONE</th>
+    <th>YEAR</th>
+    <th>MONTH</th>
+    <th>DAY</th>
+    <th colspan="3"></th>
+  </tr>
+  <tr th:each="user : ${users}">
+
+    <td th:text="${user.getFirstName()}">name</td>
+    <td th:text="${user.getLastName()}">lastname</td>
+    <td th:text="${user.getEmail()}">email</td>
+    <td th:text="${user.getPhone()}">phone</td>
+    <td th:text="${user.getYear()}">year</td>
+    <td th:text="${user.getMonth()}">month</td>
+    <td th:text="${user.getDay()}">day</td>
+
+    <td><a th:href="@{/{id}/edit(id=${user.getId()})}">EDIT</a></td>
+
+    <td>
+      <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
+        <input type="submit" value="DELETE"/>
+      </form>
+    </td>
+
+
+  </tr>
+</table>
+<br>
+
+<button type="button"onclick="location.href+='/new';">Add User</button>
+
+</body>
+</html>
